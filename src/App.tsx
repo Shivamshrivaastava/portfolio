@@ -81,8 +81,8 @@ function App() {
               <Phone className="w-6 h-6 mr-2" /> 9589460598
             </a>
             <a
-              href="portfolio\Shivamshrivastava-resume builder.pdf"
-              download="portfolio\Shivamshrivastava-resume builder.pdf"
+              href="https://drive.google.com/file/d/1zL4Mt6FLHUPrgm9euOJ_OeLF7Y3zGYpL/view?usp=sharing"
+              download="https://drive.google.com/file/d/1zL4Mt6FLHUPrgm9euOJ_OeLF7Y3zGYpL/view?usp=sharing"
               className="flex items-center text-gray-400 hover:text-white"
             >
               <FileText className="w-6 h-6 mr-2" /> Download Resume
