@@ -35,7 +35,7 @@ function App() {
             <a href="https://www.linkedin.com/in/shivam-shrivastava-3a161a22a" className="flex items-center text-gray-400 hover:text-white">
               <Linkedin className="w-6 h-6 mr-2" /> LinkedIn
             </a>
-            <a href="mailto:shivamshrivastava2002@gmail.com" className="flex items-center text-gray-400 hover:text-white">
+            <a href="mailto:shivamshrivaastava@gmail.com" className="flex items-center text-gray-400 hover:text-white">
               <Mail className="w-6 h-6 mr-2" /> Email
             </a>
             <a href="tel:9589460598" className="flex items-center text-gray-400 hover:text-white">
