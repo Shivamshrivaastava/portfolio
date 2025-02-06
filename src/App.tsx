@@ -1,14 +1,34 @@
-import { Github, Linkedin, Mail, ExternalLink, FileText } from 'lucide-react';
+import  { useState } from 'react';
+import { Github, Linkedin, Mail, ExternalLink, FileText, Phone } from 'lucide-react';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(true); // State for theme
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white">
+    <div
+      className={`min-h-screen ${isDarkMode ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white' : 'bg-gradient-to-r from-white via-gray-100 to-gray-200 text-black'} pt-32`}
+    >
       {/* Header */}
-      <header className="bg-gray-800 shadow-lg relative">
-        <div className="max-w-6xl mx-auto px-6 py-12">
-          <h1 className="text-5xl font-bold tracking-tight mb-2">Shivam Shrivastava</h1>
-          <h2 className="text-2xl font-light text-gray-300">Full Stack Developer</h2>
-          <div className="flex space-x-6 mt-6">
+      <header className={`fixed top-0 w-full z-50 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
+        <div className="max-w-6xl mx-auto px-6 py-6">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight mb-2">Shivam Shrivastava</h1>
+              <h2 className="text-xl font-light text-gray-300">Full Stack Developer</h2>
+            </div>
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full border border-gray-400 hover:border-gray-600"
+            >
+              {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+            </button>
+          </div>
+          <div className="flex flex-wrap space-x-6 mt-4">
             <a href="https://github.com/Shivamshrivaastava" className="flex items-center text-gray-400 hover:text-white">
               <Github className="w-6 h-6 mr-2" /> GitHub
             </a>
@@ -18,13 +38,8 @@ function App() {
             <a href="mailto:shivamshrivastava2002@gmail.com" className="flex items-center text-gray-400 hover:text-white">
               <Mail className="w-6 h-6 mr-2" /> Email
             </a>
-            <a
-              href="./Shivamshrivastava-resume builder.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center text-gray-400 hover:text-white"
-            >
-              <FileText className="w-6 h-6 mr-2" /> View Resume
+            <a href="tel:9589460598" className="flex items-center text-gray-400 hover:text-white">
+              <Phone className="w-6 h-6 mr-2" /> 9589460598
             </a>
             <a
               href="./Shivamshrivastava-resume builder.pdf"
@@ -41,7 +56,8 @@ function App() {
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-4xl font-semibold mb-8 text-center">Featured Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[{
+          {[
+            {
               name: 'Brainwave',
               desc: 'An AI-powered SaaS platform built with React and Tailwind CSS.',
               img: 'https://camo.githubusercontent.com/dd221734ee0995cc134edc0064e622de6646f63c7fe2e13edcfac3cd499d6604/68747470733a2f2f692e6962622e636f2f4b716476386a312f496d6167652d66726f6d2e706e67',
@@ -57,7 +73,7 @@ function App() {
             },
             {
               name: 'Social Media Analytics',
-              desc: 'A social media analytics platform allows users to monitor and analyze their social media presence.The platform collects data from various social media channels and presents it in an organized and visually appealing manner',
+              desc: 'A social media analytics platform that allows users to monitor and analyze their social media presence.',
               img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVZ5NQIStKXeR1Tl9rWzVFxtBMRFmwM9xT1A&s',
               demo: 'https://radiant-crostata-11596d.netlify.app/',
               code: 'https://github.com/Shivamshrivaastava/Solar-Stackers_016',
@@ -87,27 +103,29 @@ function App() {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-4xl font-semibold mb-8 text-center">Skills</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[{
-              title: 'Frontend',
-              skills: ['React.js', 'JavaScript', 'HTML/CSS', 'Tailwind CSS'],
-            },
-            {
-              title: 'Backend',
-              skills: ['Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
-            },
-            {
-              title: 'Tools',
-              skills: ['Git', 'VS Code', 'Postman', 'Netlify'],
-            },
-            {
-              title: 'Other',
-              skills: ['Problem Solving', 'Team Collaboration', 'Agile', 'UI/UX'],
-            }].map((section, idx) => (
+            {[
+              {
+                title: 'Frontend',
+                skills: ['React.js', 'JavaScript', 'HTML/CSS', 'Tailwind CSS'],
+              },
+              {
+                title: 'Backend',
+                skills: ['Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
+              },
+              {
+                title: 'Tools',
+                skills: ['Git', 'VS Code', 'Postman', 'Netlify'],
+              },
+              {
+                title: 'Other',
+                skills: ['Problem Solving', 'Team Collaboration', 'Agile', 'UI/UX'],
+              },
+            ].map((section, idx) => (
               <div key={idx} className="bg-gray-800 p-4 rounded-lg">
                 <h3 className="text-xl font-semibold mb-2">{section.title}</h3>
                 <ul className="text-gray-400">
-                  {section.skills.map((skill, idx) => (
-                    <li key={idx} className="mb-1">{skill}</li>
+                  {section.skills.map((skill, i) => (
+                    <li key={i} className="mb-1">{skill}</li>
                   ))}
                 </ul>
               </div>
